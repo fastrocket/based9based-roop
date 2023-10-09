@@ -1,0 +1,4 @@
+# Rename this to .env
+JPG_DIR=C:\Users\YourUsername\YourJPGDirectory
+MP4_DIR=C:\Users\YourUsername\YourMP4Directory
+OUT_DIR=C:\Users\YourUsername\YourOutputDirectory

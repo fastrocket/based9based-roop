@@ -1,4 +1,8 @@
 import os
+from dotenv import load_dotenv
+
+load_dotenv(".env")  # Load environment variables from .env file
+
 
 def get_files_in_dir(dir_path):
   """Returns a list of all files in the given directory."""
@@ -27,8 +31,13 @@ def run_face_swapper(target_dir, source_dir, output_dir, execution_provider, fra
       print(f"python run.py --target {target_file} --source {source_file} -o {output_filename} --execution-provider {execution_provider} --frame-processor {frame_processor}")
       os.system(f"python run.py --target {target_file} --source {source_file} -o {output_filename} --execution-provider {execution_provider} --frame-processor {frame_processor}")
 
+# Load directories from environment variables
+jpg_dir = os.getenv('JPG_DIR')
+mp4_dir = os.getenv('MP4_DIR')
+out_dir = os.getenv('OUT_DIR')
+
 # Example usage:
 print("Running faceswapper")
-run_face_swapper("batch-mp4/", "batch-jpg/", "out/", "cuda", "face_swapper face_enhancer")
+run_face_swapper(mp4_dir, jpg_dir, out_dir, "cuda", "face_swapper face_enhancer")
 
 print("DONE!")
